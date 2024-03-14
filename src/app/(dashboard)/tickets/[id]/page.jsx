@@ -5,7 +5,7 @@ import Delete from "./components/Delete";
 export const dynamicParams = true; // default val
 
 /*For SSG | this is done in the routes with dynamic path */
-export async function generateStaticParams() {
+/* export async function generateStaticParams() {
   const res = await fetch("http://localhost:3000/api/tickets");
 
   const { tickets } = await res.json();
@@ -14,7 +14,7 @@ export async function generateStaticParams() {
     id: ticket._id,
   }));
 }
-
+ */
 /* getting one ticket */
 async function getTicket(id) {
   // await new Promise((r) => setTimeout(r, 5000));

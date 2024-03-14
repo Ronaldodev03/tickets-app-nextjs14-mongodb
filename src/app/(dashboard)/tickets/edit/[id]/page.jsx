@@ -4,7 +4,7 @@ import EditForm from "./components/EditForm";
 export const dynamicParams = true; // default val = true
 
 /* For SSG | this is done in the routes with dynamic path */
-export async function generateStaticParams() {
+/* export async function generateStaticParams() {
   const res = await fetch("http://localhost:3000/api/tickets");
 
   const { tickets } = await res.json();
@@ -12,7 +12,7 @@ export async function generateStaticParams() {
   return tickets.map((ticket) => ({
     id: ticket._id,
   }));
-}
+} */
 
 /* getting one ticket */
 async function getTicket(id) {
