@@ -14,27 +14,6 @@ const Item = ({ ticket }) => {
 
   const router = useRouter();
 
-  /* send reorder list to db */
-  const saveOrder = async () => {
-    try {
-      const res = await fetch(
-        "https://tickets-app-nextjs14-mongodb-dnd.vercel.app/api/tickets/reorder",
-        {
-          method: "POST",
-          body: JSON.stringify({ tickets: ticketsData }),
-          "Content-Type": "application/json",
-        }
-      );
-
-      if (!res.ok) {
-        throw new Error("fail to reorder");
-      }
-      router.refresh();
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   return (
     <Reorder.Item
       value={ticket}
@@ -43,7 +22,6 @@ const Item = ({ ticket }) => {
       dragListener={false}
       dragControls={dragControls}
       className="card my-5"
-      onDragEnd={saveOrder}
     >
       <div className=" select-none">
         <h3>{ticket.title}</h3>
