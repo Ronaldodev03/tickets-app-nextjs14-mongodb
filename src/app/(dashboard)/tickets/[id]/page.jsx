@@ -5,8 +5,10 @@ import Delete from "./components/Delete";
 export const dynamicParams = true; // default val
 
 /*For SSG | this is done in the routes with dynamic path */
-/* export async function generateStaticParams() {
-  const res = await fetch("http://localhost:3000/api/tickets");
+export async function generateStaticParams() {
+  const res = await fetch(
+    "https://tickets-app-nextjs14-mongodb-dnd.vercel.app/api/tickets"
+  );
 
   const { tickets } = await res.json();
 
@@ -14,16 +16,19 @@ export const dynamicParams = true; // default val
     id: ticket._id,
   }));
 }
- */
+
 /* getting one ticket */
 async function getTicket(id) {
   // await new Promise((r) => setTimeout(r, 5000));
-  const res = await fetch(`http://localhost:3000/api/tickets/${id}`, {
-    cache: "no-store",
-    //next: {
-    //   revalidate: 60,
-    // },
-  });
+  const res = await fetch(
+    `https://tickets-app-nextjs14-mongodb-dnd.vercel.app/api/tickets/${id}`,
+    {
+      cache: "no-store",
+      //next: {
+      //   revalidate: 60,
+      // },
+    }
+  );
 
   if (!res.ok) {
     notFound(); //this will trigger the closest not-found custom page.

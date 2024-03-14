@@ -11,7 +11,7 @@ const Delete = ({ id }) => {
   const deleteTicket = async (id) => {
     setIsLoading(true);
     const res = await fetch(
-      `http://localhost:3000/api/tickets/${id}`,
+      `https://tickets-app-nextjs14-mongodb-dnd.vercel.app/api/tickets/${id}`,
 
       { method: "DELETE" }
     );

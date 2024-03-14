@@ -18,11 +18,14 @@ export default function TicketList({ tickets }) {
   /* send reorder list to db */
   const saveOrder = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/tickets/reorder", {
-        method: "POST",
-        body: JSON.stringify({ tickets: ticketsData }),
-        "Content-Type": "application/json",
-      });
+      const res = await fetch(
+        "https://tickets-app-nextjs14-mongodb-dnd.vercel.app/api/tickets/reorder",
+        {
+          method: "POST",
+          body: JSON.stringify({ tickets: ticketsData }),
+          "Content-Type": "application/json",
+        }
+      );
 
       if (!res.ok) {
         throw new Error("fail to reorder");

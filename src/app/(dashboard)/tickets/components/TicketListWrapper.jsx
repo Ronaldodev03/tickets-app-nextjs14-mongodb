@@ -1,9 +1,12 @@
 import TicketList from "./TicketList";
 
 async function getTickets() {
-  const res = await fetch("http://localhost:3000/api/tickets", {
-    cache: "no-store",
-  });
+  const res = await fetch(
+    "https://tickets-app-nextjs14-mongodb-dnd.vercel.app/api/tickets",
+    {
+      cache: "no-store",
+    }
+  );
 
   if (!res.ok) {
     throw new Error("Error fetching");

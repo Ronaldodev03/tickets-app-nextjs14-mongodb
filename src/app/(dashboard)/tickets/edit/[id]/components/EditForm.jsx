@@ -22,11 +22,14 @@ export default function EditForm({ ticket }) {
       user_email: ticket.user_email,
     };
 
-    const res = await fetch(`http://localhost:3000/api/tickets/${ticket._id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(editedTicket),
-    });
+    const res = await fetch(
+      `https://tickets-app-nextjs14-mongodb-dnd.vercel.app/api/tickets/${ticket._id}`,
+      {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(editedTicket),
+      }
+    );
 
     if (res.status === 200) {
       router.push(`/tickets/${ticket._id}`);
