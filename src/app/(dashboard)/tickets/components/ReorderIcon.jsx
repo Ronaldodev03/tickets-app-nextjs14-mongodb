@@ -1,11 +1,17 @@
 export function ReorderIcon({ dragControls }) {
+  const handleStart = (e) => {
+    //  e.stopPropagation();
+    dragControls.start(e);
+  };
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 39 39"
       width="39"
       height="39"
-      onPointerDown={(e) => dragControls.start(e)}
+      onPointerDown={handleStart}
+      //   onTouchStart={handleStart} //didnt work for tactil divices
       className=" cursor-grab scale-50"
     >
       <path

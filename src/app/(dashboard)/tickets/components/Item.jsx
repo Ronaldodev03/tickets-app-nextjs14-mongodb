@@ -2,25 +2,21 @@ import { useMotionValue, Reorder, useDragControls } from "framer-motion";
 import { useRaisedShadow } from "./use-raised-shadow";
 import { ReorderIcon } from "./ReorderIcon";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
-
-import { useRouter } from "next/navigation";
-
 import Link from "next/link";
 
-const Item = ({ ticket }) => {
+const Item = ({ ticket, saveOrder }) => {
   const y = useMotionValue(0);
   const boxShadow = useRaisedShadow(y);
   const dragControls = useDragControls();
-
-  const router = useRouter();
 
   return (
     <Reorder.Item
       value={ticket}
       id={ticket}
       style={{ boxShadow, y }}
-      dragListener={false}
+      // dragListener={false} // I have comment this line b/c DnD using ReorderIcon was not working in tactil
       dragControls={dragControls}
+      onDragEnd={saveOrder}
       className="card my-5"
     >
       <div className=" select-none">

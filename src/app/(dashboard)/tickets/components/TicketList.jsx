@@ -2,9 +2,11 @@
 import { Reorder } from "framer-motion";
 import { useState } from "react";
 import Item from "./Item";
+import { useRouter } from "next/navigation";
 
 export default function TicketList({ tickets }) {
   const [ticketsData, setTicketsData] = useState(tickets);
+  const router = useRouter();
 
   /* send reorder list to db */
   const saveOrder = async () => {
@@ -32,7 +34,7 @@ export default function TicketList({ tickets }) {
       <Reorder.Group axis="y" values={ticketsData} onReorder={setTicketsData}>
         {ticketsData?.map((ticket) => {
           return (
-            <Item key={ticket._id} ticket={ticket} onDragEnd={saveOrder} />
+            <Item key={ticket._id} ticket={ticket} saveOrder={saveOrder} />
           );
         })}
       </Reorder.Group>
