@@ -4,7 +4,7 @@ async function getTickets() {
   const res = await fetch(
     "https://tickets-app-nextjs14-mongodb-dnd.vercel.app/api/tickets",
     {
-      cache: "no-store",
+      cache: "no-cache",
     }
   );
 
